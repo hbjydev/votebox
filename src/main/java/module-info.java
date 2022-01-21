@@ -7,4 +7,8 @@ module moe.hayden.votebox {
     exports moe.hayden.votebox;
     exports moe.hayden.votebox.controllers;
     opens moe.hayden.votebox.controllers to javafx.fxml;
+    exports moe.hayden.votebox.controllers.voter;
+    opens moe.hayden.votebox.controllers.voter to javafx.fxml;
+    exports moe.hayden.votebox.controllers.admin;
+    opens moe.hayden.votebox.controllers.admin to javafx.fxml;
 }
