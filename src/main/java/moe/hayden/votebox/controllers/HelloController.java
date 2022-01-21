@@ -1,4 +1,4 @@
-package moe.hayden.votebox;
+package moe.hayden.votebox.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
