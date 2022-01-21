@@ -14,14 +14,14 @@
       <VBox prefHeight="50.0" prefWidth="560.0">
          <children>
             <Label text="Voter Registration" />
-            <TextField>
+            <TextField fx:id="registrationField">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="260.0" text="Continue">
+      <Button mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="26.0" prefWidth="260.0" text="Continue">
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
