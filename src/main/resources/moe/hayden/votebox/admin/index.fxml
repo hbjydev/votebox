@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moe.hayden.votebox.controllers.voter.VoterIndexController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moe.hayden.votebox.controllers.admin.AdminIndexController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -15,7 +15,7 @@
       <VBox prefHeight="50.0" prefWidth="560.0">
          <children>
             <Label text="Username" />
-            <TextField>
+            <TextField fx:id="usernameField">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
@@ -25,7 +25,7 @@
       <VBox prefHeight="50.0" prefWidth="560.0">
          <children>
             <Label text="Password" />
-            <PasswordField>
+            <PasswordField fx:id="passwordField">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
@@ -35,7 +35,7 @@
             <Insets top="16.0" />
          </VBox.margin>
       </VBox>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="260.0" text="Sign in">
+      <Button mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="260.0" text="Sign in">
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
