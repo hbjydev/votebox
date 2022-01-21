@@ -18,7 +18,7 @@ public class LandingController {
     @FXML
     protected void onVoterButtonClick() throws IOException {
         var stage = (Stage) welcomeText.getScene().getWindow();
-        stage.setScene(FXUtils.getScene("voter-landing.fxml"));
+        stage.setScene(FXUtils.getScene("voter/index.fxml"));
         stage.setTitle("Administrative Login");
     }
 
@@ -26,7 +26,7 @@ public class LandingController {
     @FXML
     protected void onAdminButtonClick() throws IOException {
         var stage = (Stage) welcomeText.getScene().getWindow();
-        stage.setScene(FXUtils.getScene("admin-landing.fxml"));
+        stage.setScene(FXUtils.getScene("admin/index.fxml"));
         stage.setTitle("Administrative Login");
     }
 }

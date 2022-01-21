@@ -1,4 +1,4 @@
 package moe.hayden.votebox.controllers;
 
-public class AdminLandingController {
+public class VoterIndexController {
 }
