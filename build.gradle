@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'moe.hayden.votebox'
-    mainClass = 'moe.hayden.votebox.HelloApplication'
+    mainClass = 'moe.hayden.votebox.VoteboxApplication'
 }
 
 javafx {
