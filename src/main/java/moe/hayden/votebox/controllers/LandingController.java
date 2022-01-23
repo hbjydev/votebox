@@ -19,7 +19,7 @@ public class LandingController {
     protected void onVoterButtonClick() throws IOException {
         var stage = (Stage) welcomeText.getScene().getWindow();
         stage.setScene(FXUtils.getScene("voter/index.fxml"));
-        stage.setTitle("Log In");
+        stage.setTitle("Voter Registration");
     }
 
     /** Swaps the view to the Admin Login page. */

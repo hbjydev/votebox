@@ -13,8 +13,11 @@ repositories {
 }
 
 ext {
+    sqliteJdbcVersion = '3.36.0.3'
+
     junitVersion = '5.8.2'
     testfxVersion = '4.0.16'
+    hamcrestVersion = '2.2'
 }
 
 sourceCompatibility = '11'
@@ -35,9 +38,11 @@ javafx {
 }
 
 dependencies {
+    implementation("org.xerial:sqlite-jdbc:${sqliteJdbcVersion}")
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.testfx:testfx-junit5:${testfxVersion}-alpha")
-    testImplementation('org.hamcrest:hamcrest:2.2')
+    testImplementation("org.hamcrest:hamcrest:${hamcrestVersion}")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

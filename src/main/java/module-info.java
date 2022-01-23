@@ -1,7 +1,7 @@
 module moe.hayden.votebox {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires java.sql;
 
     opens moe.hayden.votebox to javafx.fxml;
     exports moe.hayden.votebox;
