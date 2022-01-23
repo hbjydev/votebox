@@ -13,6 +13,7 @@ public class AdminIndexController {
 
     @FXML
     protected void onLoginButtonClick() {
+        // TODO: Replace this with a database lookup.
         if (!(usernameField.getText().equals("hayden") && passwordField.getText().equals("P4ssw0rd!"))) {
             // TODO: Handle unsuccessful authentication
             System.out.println("Authentication failure.");
