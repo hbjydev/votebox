@@ -29,9 +29,9 @@ public class VoteboxApplication extends Application {
     public static void main(String[] args) throws SQLException, IOException {
         // initialize database connection to db.sqlite file, allowing for multi
         // statement queries to run
-        var connection = Connection.getInstance();
-        connection.connect("jdbc:sqlite:db.sqlite?allowMultiQueries=true");
-        connection.init();
+//        var connection = Connection.getInstance();
+//        connection.connect("jdbc:sqlite:db.sqlite?allowMultiQueries=true");
+//        connection.init();
 
         // run the main JavaFX application
         launch();

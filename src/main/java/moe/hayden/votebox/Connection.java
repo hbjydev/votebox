@@ -1,8 +1,6 @@
 package moe.hayden.votebox;
 
 import java.io.*;
-import java.nio.Buffer;
-import java.nio.file.Files;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +26,7 @@ public class Connection {
 
     public void init() throws SQLException, IOException {
         var statement = jdbcConnection.createStatement();
-        var sql = getFileContents("initdb.sql");
+        var sql = getFileContents("queries/initdb.sql");
         statement.execute(sql);
     }
 
