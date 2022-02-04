@@ -28,6 +28,10 @@ public class VoterRepository {
             .findFirst();
     }
 
+    public void create(Voter voter) {
+        data.add(voter);
+    }
+
     public static VoterRepository getInstance() {
         if (VoterRepository.instance == null) {
             VoterRepository.instance = new VoterRepository();

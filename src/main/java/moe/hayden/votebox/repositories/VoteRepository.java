@@ -12,8 +12,8 @@ public class VoteRepository {
     private final List<Vote> data = new ArrayList<>();
 
     public VoteRepository() {
-        data.add(new Vote("UKGE 42069", "UK General Elections #42069", "{}"));
-        data.add(new Vote("Sheffield Ice Creams", null, "{}"));
+        data.add(new Vote("UKGE 42069", "UK General Elections #42069", "Conservative;Labour;Liberal Democrats"));
+        data.add(new Vote("Sheffield Ice Creams", null, "Chocolate;Vanilla;Strawberry"));
     }
 
     public List<Vote> getAll() {

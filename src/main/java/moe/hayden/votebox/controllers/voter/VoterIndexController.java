@@ -17,19 +17,24 @@ public class VoterIndexController {
 
     @FXML
     protected void onSubmitButtonClick() throws Exception {
+        Voter voter;
         VoterRepository repo = VoterRepository.getInstance();
         ApplicationState state = ApplicationState.getInstance();
         var user = repo.findByRegistration(registrationField.getText());
+
         if (user.isPresent()) {
             System.out.println("Voter registration: " + user.get().registration);
-            state.setVoter(user.get());
-
-            var stage = (Stage) registrationField.getScene().getWindow();
-            stage.setScene(FXUtils.getScene("voter/votes-list.fxml"));
-            stage.setTitle("Select Vote");
+            voter = user.get();
         } else {
             System.out.println("[err] no such user found by registration " + registrationField.getText());
+            voter = new Voter(registrationField.getText());
+            repo.create(voter);
         }
+
+        state.setVoter(voter);
+        var stage = (Stage) registrationField.getScene().getWindow();
+        stage.setScene(FXUtils.getScene("voter/votes-list.fxml"));
+        stage.setTitle("Select Vote");
     }
 
     @FXML

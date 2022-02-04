@@ -21,7 +21,7 @@ public class ApplicationState {
         this.vote = vote;
     }
 
-    public Vote getVote(Vote vote) {
+    public Vote getVote() {
         return vote;
     }
 

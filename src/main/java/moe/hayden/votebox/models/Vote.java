@@ -1,5 +1,7 @@
 package moe.hayden.votebox.models;
 
+import moe.hayden.votebox.repositories.BallotRepository;
+
 public class Vote {
     public int id;
 
@@ -16,6 +18,11 @@ public class Vote {
 
     public void castVote(Voter voter, String option) throws Exception {
         var ballot = new Ballot(voter, this, option);
-        ballot.save();
+        var repo = BallotRepository.getInstance();
+        repo.create(ballot);
+    }
+
+    public String[] getOptions() {
+        return options.split(";");
     }
 }
