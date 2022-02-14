@@ -12,6 +12,7 @@ import moe.hayden.votebox.repositories.BallotRepository;
 import moe.hayden.votebox.repositories.VoteRepository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +40,13 @@ public class DashboardController {
         }
     }
 
+    public void updateOptionList() throws SQLException {
+        optionListView.getItems().clear();
+        for (String option : currentVote.getOptions()) {
+            optionListView.getItems().add(option);
+        }
+    }
+
     public void initialize() throws SQLException {
         state = ApplicationState.getInstance();
         voteRepository = VoteRepository.getInstance();
@@ -50,11 +58,7 @@ public class DashboardController {
     public void onVoteSelect() throws SQLException {
         var item = voteListView.getSelectionModel().getSelectedItem();
         currentVote = voteRepository.findByName(item);
-        var options = currentVote.getOptions();
-        optionListView.getItems().clear();
-        for (String option : options) {
-            optionListView.getItems().add(option);
-        }
+        updateOptionList();
     }
 
     @FXML
@@ -85,9 +89,24 @@ public class DashboardController {
 
         var options = Arrays.stream(currentVote.getOptions()).collect(Collectors.toList());
         options.add(option);
-        currentVote.options = String.join(";", options);
+
+        if (options.size() == 1) currentVote.options = option;
+        else currentVote.options = String.join(";", options);
 
         voteRepository.update(currentVote);
+
+        updateOptionList();
+    }
+
+    @FXML
+    public void onRemove() throws SQLException
+    {
+        var list = new ArrayList<String>(Arrays.asList(currentVote.getOptions()));
+        var opt = optionListView.getSelectionModel().getSelectedItem();
+        list.remove(opt);
+        currentVote.options = String.join(";", list);
+        voteRepository.update(currentVote);
+        updateOptionList();
     }
 
     @FXML

@@ -1,7 +1,7 @@
 package moe.hayden.votebox.models;
 
 public class Ballot {
-    public String id;
+    public int id;
     public Voter voter;
     public Vote vote;
     public String option;

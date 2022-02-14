@@ -38,6 +38,7 @@ public class VoteRepository {
         ps.setString(1, vote.name);
         ps.setString(2, vote.description);
         ps.setString(3, vote.options);
+        ps.setInt(4, vote.id);
         ps.executeUpdate();
         conn.close();
     }
@@ -64,6 +65,7 @@ public class VoteRepository {
         ps.setString(1, name);
         var rs = ps.executeQuery();
         var vote = new Vote(rs.getString("name"), rs.getString("description"), rs.getString("options"));
+        vote.id = rs.getInt("id");
         conn.close();
         return vote;
     }
