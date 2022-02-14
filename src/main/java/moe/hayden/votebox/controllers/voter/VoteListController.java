@@ -11,6 +11,7 @@ import moe.hayden.votebox.models.Vote;
 import moe.hayden.votebox.repositories.VoteRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class VoteListController {
     private ApplicationState state;
@@ -19,7 +20,7 @@ public class VoteListController {
     @FXML
     private ListView<String> voteListView;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         state = ApplicationState.getInstance();
         voteRepository = VoteRepository.getInstance();
 
@@ -29,7 +30,7 @@ public class VoteListController {
     }
 
     @FXML
-    public void onSelectButtonClick() throws IOException {
+    public void onSelectButtonClick() throws IOException, SQLException {
         var voter = state.getVoter();
         var selected = voteListView.getSelectionModel().getSelectedItem();
 
@@ -40,16 +41,12 @@ public class VoteListController {
         }
 
         var vote = voteRepository.findByName(selected);
-        if (vote.isPresent()) {
-            System.out.println("Voter " + voter.registration + " selected vote " + vote.get().name);
-            var selectedVote = vote.get();
-            state.setVote(selectedVote);
 
-            var stage = (Stage) voteListView.getScene().getWindow();
-            stage.setScene(FXUtils.getScene("ballot/ballot.fxml"));
-            stage.setTitle("Select Option");
-        } else {
-            System.out.println("No such vote found!");
-        }
+        System.out.println("Voter " + voter.registration + " selected vote " + vote.name);
+        state.setVote(vote);
+
+        var stage = (Stage) voteListView.getScene().getWindow();
+        stage.setScene(FXUtils.getScene("ballot/ballot.fxml"));
+        stage.setTitle("Select Option");
     }
 }

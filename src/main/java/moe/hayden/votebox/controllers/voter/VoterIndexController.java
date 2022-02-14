@@ -21,15 +21,9 @@ public class VoterIndexController {
         VoterRepository repo = VoterRepository.getInstance();
         ApplicationState state = ApplicationState.getInstance();
         var user = repo.findByRegistration(registrationField.getText());
-
-        if (user.isPresent()) {
-            System.out.println("Voter registration: " + user.get().registration);
-            voter = user.get();
-        } else {
-            System.out.println("[err] no such user found by registration " + registrationField.getText());
-            voter = new Voter(registrationField.getText());
-            repo.create(voter);
-        }
+        System.out.println("[err] no such user found by registration " + registrationField.getText());
+        voter = new Voter(registrationField.getText());
+        repo.create(voter);
 
         state.setVoter(voter);
         var stage = (Stage) registrationField.getScene().getWindow();

@@ -13,12 +13,13 @@ repositories {
 }
 
 ext {
-    sqliteJdbcVersion = '3.36.0.3'
+    sqliteVersion = '3.36.0.3'
+    hibernateVersion = '6.0.0.CR1'
+    jpaVersion = '2.2'
 
     junitVersion = '5.8.2'
     testfxVersion = '4.0.16'
     mockitoVersion = '4.3.1'
-    hamcrestVersion = '2.2'
 }
 
 sourceCompatibility = '11'
@@ -35,14 +36,11 @@ javafx {
 }
 
 dependencies {
-    implementation("org.xerial:sqlite-jdbc:${sqliteJdbcVersion}")
-
+    implementation("org.xerial:sqlite-jdbc:${sqliteVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.testfx:testfx-junit5:${testfxVersion}-alpha")
     testImplementation("org.mockito:mockito-core:${mockitoVersion}")
     testImplementation("org.mockito:mockito-junit-jupiter:${mockitoVersion}")
-//    testImplementation("org.hamcrest:hamcrest:${hamcrestVersion}")
-
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
@@ -51,6 +49,7 @@ test {
 }
 
 jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'VoteBox'
     }

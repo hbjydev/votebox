@@ -2,7 +2,6 @@ package moe.hayden.votebox.repositories;
 
 import moe.hayden.votebox.enums.UserRole;
 import moe.hayden.votebox.models.User;
-import moe.hayden.votebox.models.Vote;
 
 import java.util.ArrayList;
 import java.util.List;
