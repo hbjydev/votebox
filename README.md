@@ -9,7 +9,18 @@ To compile this project, you can use the included Gradle wrapper
 by using the `./gradlew` or `./gradlew.bat` utilities.
 
 ```shell
+# run the application
 $ ./gradlew run
+
+> Configure project :
+Project : => 'moe.hayden.votebox' Java module
+
+> Task :configJavafxRun
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :jar
+> Task :mergeClasses SKIPPED
 ```
 
 ## Motivation
